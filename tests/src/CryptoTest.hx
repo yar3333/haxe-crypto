@@ -1,5 +1,6 @@
 package;
 
+import haxe.crypto.Hmac;
 import sys.crypto.Md5;
 import sys.crypto.Sha1;
 import sys.crypto.Ripemd160;
@@ -42,5 +43,11 @@ class CryptoTest extends haxe.unit.TestCase
     {
 		var r = Sha512.encode("abc");
 		assertEquals("ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f", r);
+    }
+	
+	public function testHmacSha512()
+    {
+		var r = new Hmac(new Sha512()).calculate("def", "abc");
+		assertEquals("17111e70f32d48a37ccc50a21deb12b40dfe223abf5ac852428000182125dab8a12ee95dd9f526bfb79c1a4fe00a4118e3b525f40eb8291325e3030f2e13ad34", r);
     }
 }
