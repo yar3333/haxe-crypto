@@ -1,7 +1,7 @@
 include Makefile.platform
 include Makefile.ndll
 
-PROJECT=openssl
+PROJECT=crypto
 
 ifeq ($(PLATFORM),Windows)
 	OPENSSLPATH=D:\MyProg\_tools\OpenSSL
