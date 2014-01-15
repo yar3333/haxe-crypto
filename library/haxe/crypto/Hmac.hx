@@ -23,7 +23,7 @@ class Hmac
 		{
 			K = hexDecode(hash.calculate(K));
 		}
-		K = ByteString.nullPadString(K, B);
+		K = nullPadString(K, B);
 		K = K.substr(0, B);
 		
 		var Ki = new StringBuf();
@@ -42,7 +42,7 @@ class Hmac
 		return hash.calculate(Ko.toString());
 	}
 	
-	public function hexDecode(hex:String) : String
+	function hexDecode(hex:String) : String
 	{
 		var b = new StringBuf();
 		var i = 0; while (i < hex.length)
@@ -55,7 +55,7 @@ class Hmac
 		return b.toString();
 	}
 	
-	public function hexEncode(s:String) : String
+	/*function hexEncode(s:String) : String
 	{
 		var r = "";
 		for (i in 0...s.length)
@@ -65,5 +65,15 @@ class Hmac
 			r += "0123456789abcdef".substr(c & 0xF, 1);
 		}
 		return r;
-	}
+	}*/
+	
+	public static function nullPadString(s:String, chunkLen:Int) : String
+	{
+		var r = chunkLen - (s.length % chunkLen);
+		if (r == chunkLen) return s;
+		var sb = new StringBuf();
+		sb.add(s);
+		for(x in 0...r) sb.addChar(0);
+		return sb.toString();
+	}	
 }
