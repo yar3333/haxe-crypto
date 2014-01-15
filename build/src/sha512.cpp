@@ -1,5 +1,6 @@
 #include <string.h>
 #include <cstdio>
+#include <cstdlib>
 #include <openssl/sha.h>
 #include <neko.h>
 
@@ -7,10 +8,11 @@ static value openssl_sha512( value v ) {
 
 	unsigned char digest[SHA512_DIGEST_LENGTH];
 	char* s = (char*)val_string(v);
- 
+	int len = val_strlen(v);
+	
 	SHA512_CTX ctx;
 	SHA512_Init( &ctx );
-	SHA512_Update( &ctx, s, strlen(s) );
+	SHA512_Update( &ctx, s, len );
 	SHA512_Final( digest, &ctx );
  
 	char md[SHA512_DIGEST_LENGTH*2+1];
