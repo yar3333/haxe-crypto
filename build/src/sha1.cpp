@@ -7,10 +7,11 @@ static value openssl_sha1( value v ) {
 
 	unsigned char digest[SHA_DIGEST_LENGTH];
 	char* s = (char*)val_string(v);
+	int len = val_strlen(v);
  
 	SHA_CTX ctx;
 	SHA1_Init( &ctx );
-	SHA1_Update( &ctx, s, strlen(s) );
+	SHA1_Update( &ctx, s, len );
 	SHA1_Final( digest, &ctx );
  
 	char md[SHA_DIGEST_LENGTH*2+1];

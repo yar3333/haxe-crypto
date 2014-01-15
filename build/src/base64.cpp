@@ -14,7 +14,7 @@ static value openssl_base64_encode( value v ) {
 	b64 = BIO_new( BIO_f_base64() );
 	bmem = BIO_new( BIO_s_mem() );
 	b64 = BIO_push( b64, bmem );
-	BIO_write( b64, inp, strlen(inp) );
+	BIO_write( b64, inp, val_strlen(v) );
 	BIO_flush( b64 );
 	BIO_get_mem_ptr( b64, &bptr );
 

@@ -7,10 +7,11 @@ static value openssl_sha256( value v ) {
 
 	unsigned char digest[SHA256_DIGEST_LENGTH];
 	char* s = (char*)val_string(v);
+	int len = val_strlen(v);
  
 	SHA256_CTX ctx;
 	SHA256_Init( &ctx );
-	SHA256_Update( &ctx, s, strlen(s) );
+	SHA256_Update( &ctx, s, len );
 	SHA256_Final( digest, &ctx );
  
 	char md[SHA256_DIGEST_LENGTH*2+1];

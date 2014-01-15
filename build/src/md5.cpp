@@ -14,7 +14,7 @@ static value openssl_md5( value v, value raw ) {
 	const char * s = val_string(v);
 	bool _raw = val_bool( raw );
 
-	int len = strlen(s);
+	int len = val_strlen(s);
 	int n;
 	MD5_CTX c;
 
