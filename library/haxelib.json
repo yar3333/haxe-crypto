@@ -1,11 +1,11 @@
 {
-  "name": "openssl",
+  "name": "crypto",
   "license": "LGPL",
   "tags": ["neko"],
-  "description": "OpenSSL library bindings for neko. Based on hxssl project.",
+  "description": "Some algorithms for haxe/neko (mostly based on hxssl/OpenSSL).",
   "contributors": ["yar3333"],
-  "releasenote": "SHA-512 added.",
+  "releasenote": "+ SHA-512",
   "version": "1.0.0",
-  "url": "https://code.google.com/p/haxe-openssl/",
+  "url": "https://bitbucket.org/yar3333/haxe-crypto",
   "dependencies": {}
-}
+}  

@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\index.n" />
+    <movie path="tests\bin\index.n" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
@@ -22,6 +22,7 @@
   <build>
     <option directives="" />
     <option flashStrict="False" />
+    <option noInlineOnDebug="False" />
     <option mainClass="Main" />
     <option enabledebug="True" />
     <option additional="" />
@@ -38,6 +39,7 @@
   <hiddenPaths>
     <hidden path="library\library.zip" />
     <hidden path="bin" />
+    <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
   <preBuildCommand />
