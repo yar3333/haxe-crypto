@@ -1,4 +1,3 @@
-#include <string.h>
 #include <cstdio>
 #include <openssl/sha.h>
 #include <neko.h>
@@ -10,7 +9,7 @@ static value crypto_sha1(value v)
  
 	SHA_CTX ctx;
 	SHA1_Init(&ctx);
-	SHA1_Update(&ctx, s, strlen(s));
+	SHA1_Update(&ctx, s, val_strlen(v));
 	SHA1_Final(digest, &ctx);
  
 	char md[SHA_DIGEST_LENGTH * 2 + 1];
