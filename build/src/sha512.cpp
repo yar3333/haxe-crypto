@@ -1,4 +1,3 @@
-#include <string.h>
 #include <cstdio>
 #include <cstdlib>
 #include <openssl/sha.h>
@@ -11,7 +10,7 @@ static value crypto_sha512(value v)
 	
 	SHA512_CTX ctx;
 	SHA512_Init(&ctx);
-	SHA512_Update(&ctx, s, strlen(s));
+	SHA512_Update(&ctx, s, val_strlen(v));
 	SHA512_Final(digest, &ctx);
  
 	char md[SHA512_DIGEST_LENGTH * 2 + 1];

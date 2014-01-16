@@ -1,4 +1,3 @@
-#include <string.h>
 #include <cstdio>
 #include <openssl/sha.h>
 #include <neko.h>
@@ -10,7 +9,7 @@ static value crypto_sha256(value v)
  
 	SHA256_CTX ctx;
 	SHA256_Init(&ctx);
-	SHA256_Update(&ctx, s, strlen(s));
+	SHA256_Update(&ctx, s, val_strlen(v));
 	SHA256_Final(digest, &ctx);
  
 	char md[SHA256_DIGEST_LENGTH * 2 + 1];

@@ -1,4 +1,3 @@
-#include <string.h>
 #include <cstdio>
 #include <openssl/ripemd.h>
 #include <neko.h>
@@ -10,7 +9,7 @@ static value crypto_ripemd160(value v)
  
 	RIPEMD160_CTX ctx;
 	RIPEMD160_Init(&ctx);
-	RIPEMD160_Update(&ctx, s, strlen(s));
+	RIPEMD160_Update(&ctx, s, val_strlen(v));
 	RIPEMD160_Final(digest, &ctx);
  	
 	char md[RIPEMD160_DIGEST_LENGTH * 2 + 1];

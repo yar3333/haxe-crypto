@@ -33,7 +33,7 @@ static value crypto_base64_decode(value v)
 	BIO *b64, *bmem;
 
 	char *inp = (char*)val_string(v);
-	int len = strlen(inp);
+	int len = val_strlen(v);
 	
 	char *buf = (char *)malloc(len);
 	memset(buf, 0, len);

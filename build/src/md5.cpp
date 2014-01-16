@@ -1,4 +1,3 @@
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <openssl/md5.h>
@@ -8,7 +7,7 @@ static value crypto_md5(value v)
 {
 	const char * s = val_string(v);
 
-	int len = strlen(s);
+	int len = val_strlen(v);
 	MD5_CTX c;
 
 	unsigned char digest[MD5_DIGEST_LENGTH];
